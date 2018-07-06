@@ -98,10 +98,10 @@ open class ImageScrollView: UIScrollView {
             frameToCenter.origin.y = 0
         }
         
-        if isIphoneX {
+        if UIDevice.current.isIphoneX {
             let bottomInset = CGFloat(46/3) * UIScreen.main.scale
             
-            frameToCenter.origin.y = frameToCenter.origin.y - bottomInset            
+            frameToCenter.origin.y = frameToCenter.origin.y - bottomInset
         }
         
         unwrappedZoomView.frame = frameToCenter
