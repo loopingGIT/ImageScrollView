@@ -98,8 +98,15 @@ open class ImageScrollView: UIScrollView {
             frameToCenter.origin.y = 0
         }
         
+        if isIphoneX {
+            let bottomInset = CGFloat(46/3) * UIScreen.main.scale
+            
+            frameToCenter.origin.y = frameToCenter.origin.y - bottomInset            
+        }
+        
         unwrappedZoomView.frame = frameToCenter
     }
+    
     
     fileprivate func prepareToResize() {
         let boundsCenter = CGPoint(x: bounds.midX, y: bounds.midY)
@@ -278,4 +285,15 @@ extension ImageScrollView: UIScrollViewDelegate{
         adjustFrameToCenter()
     }
     
+}
+
+extension UIDevice {
+    
+    fileprivate var isIphoneX: Bool {
+        guard userInterfaceIdiom == .phone else {
+            return false
+        }
+        
+        return UIScreen.main.nativeBounds.height == 2436
+    }
 }
