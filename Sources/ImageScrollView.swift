@@ -98,11 +98,11 @@ open class ImageScrollView: UIScrollView {
             frameToCenter.origin.y = 0
         }
         
-        if UIDevice.current.isIphoneX {
-            let bottomInset = CGFloat(46/3) * UIScreen.main.scale
-            
-            frameToCenter.origin.y = frameToCenter.origin.y - bottomInset
-        }
+//        if UIDevice.current.isIphoneX {
+//            let bottomInset = CGFloat(46/3) * UIScreen.main.scale
+//            
+//            frameToCenter.origin.y = frameToCenter.origin.y - bottomInset
+//        }
         
         unwrappedZoomView.frame = frameToCenter
     }
@@ -287,13 +287,13 @@ extension ImageScrollView: UIScrollViewDelegate{
     
 }
 
-extension UIDevice {
-    
-    fileprivate var isIphoneX: Bool {
-        guard userInterfaceIdiom == .phone else {
-            return false
-        }
-        
-        return UIScreen.main.nativeBounds.height == 2436
-    }
-}
+//extension UIDevice {
+//
+//    fileprivate var isIphoneX: Bool {
+//        guard userInterfaceIdiom == .phone else {
+//            return false
+//        }
+//
+//        return UIScreen.main.nativeBounds.height == 2436
+//    }
+//}
