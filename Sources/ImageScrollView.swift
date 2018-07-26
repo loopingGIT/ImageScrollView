@@ -34,6 +34,8 @@ open class ImageScrollView: UIScrollView {
     fileprivate var scaleToRestoreAfterResize: CGFloat = 1.0
     var maxScaleFromMinScale: CGFloat = 3.0
     
+    open var tapGesture: UITapGestureRecognizer?
+
     override open var frame: CGRect {
         willSet {
             if frame.equalTo(newValue) == false && newValue.equalTo(CGRect.zero) == false && imageSize.equalTo(CGSize.zero) == false {
@@ -163,9 +165,9 @@ open class ImageScrollView: UIScrollView {
         zoomView!.isUserInteractionEnabled = true
         addSubview(zoomView!)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ImageScrollView.doubleTapGestureRecognizer(_:)))
-        tapGesture.numberOfTapsRequired = 2
-        zoomView!.addGestureRecognizer(tapGesture)
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(ImageScrollView.doubleTapGestureRecognizer(_:)))
+        tapGesture?.numberOfTapsRequired = 2
+        zoomView!.addGestureRecognizer(tapGesture!)
         
         configureImageForSize(image.size)
     }
