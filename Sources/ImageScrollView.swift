@@ -98,12 +98,6 @@ open class ImageScrollView: UIScrollView {
             frameToCenter.origin.y = 0
         }
         
-//        if UIDevice.current.isIphoneX {
-//            let bottomInset = CGFloat(46/3) * UIScreen.main.scale
-//            
-//            frameToCenter.origin.y = frameToCenter.origin.y - bottomInset
-//        }
-        
         unwrappedZoomView.frame = frameToCenter
     }
     
@@ -170,7 +164,7 @@ open class ImageScrollView: UIScrollView {
         addSubview(zoomView!)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ImageScrollView.doubleTapGestureRecognizer(_:)))
-        tapGesture.numberOfTapsRequired = 2
+        tapGesture.numberOfTapsRequired = 1
         zoomView!.addGestureRecognizer(tapGesture)
         
         configureImageForSize(image.size)
@@ -286,14 +280,3 @@ extension ImageScrollView: UIScrollViewDelegate{
     }
     
 }
-
-//extension UIDevice {
-//
-//    fileprivate var isIphoneX: Bool {
-//        guard userInterfaceIdiom == .phone else {
-//            return false
-//        }
-//
-//        return UIScreen.main.nativeBounds.height == 2436
-//    }
-//}
