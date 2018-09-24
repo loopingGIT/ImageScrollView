@@ -10,7 +10,7 @@ import UIKit
 
 open class ImageScrollView: UIScrollView {
     
-    @objc public enum ContentMode: Int {
+    @objc public enum ScrollImageContentMode: Int {
         case aspectFill
         case aspectFit
         case widthFill
@@ -24,7 +24,7 @@ open class ImageScrollView: UIScrollView {
     
     static let kZoomInFactorFromMinWhenDoubleTap: CGFloat = 2
     
-    @objc open var imageContentMode: ContentMode = .widthFill
+    @objc open var imageContentMode: ScrollImageContentMode = .widthFill
     @objc open var initialOffset: Offset = .begining
     
     @objc public private(set) var zoomView: UIImageView? = nil
@@ -70,7 +70,7 @@ open class ImageScrollView: UIScrollView {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         bouncesZoom = true
-        decelerationRate = UIScrollViewDecelerationRateFast
+        decelerationRate = UIScrollView.DecelerationRate.fast
         delegate = self
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(ImageScrollView.changeOrientationNotification), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
