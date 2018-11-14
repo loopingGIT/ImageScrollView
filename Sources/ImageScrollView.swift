@@ -70,7 +70,7 @@ open class ImageScrollView: UIScrollView {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         bouncesZoom = true
-        decelerationRate = UIScrollView.DecelerationRate.fast
+        //decelerationRate = UIScrollView.DecelerationRate.fast
         delegate = self
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(ImageScrollView.changeOrientationNotification), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
